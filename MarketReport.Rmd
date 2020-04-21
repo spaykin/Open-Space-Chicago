@@ -1,9 +1,12 @@
 ---
-title: "Assignment 3: North Lawndale Market Report"
-subtitle: "Introduction to GIS and Spatial Analysis"
+title: 'Assignment 3: North Lawndale Market Report'
 author: "Susan Paykin"
 date: "5/26/2019"
-output: pdf_document
+output:
+  pdf_document: default
+  html_document:
+    df_print: paged
+subtitle: Introduction to GIS and Spatial Analysis
 ---
 
 ```{r setup, include=FALSE}
@@ -16,30 +19,25 @@ library("rgeos")
 library("sp")
 library(tmap)
 library(leaflet)
-#install.packages("raster")
-library(raster) # Needed for grid and kernel density surface
-#install.packages("adehabitatHR")
+library(raster)
 library(adehabitatHR) # Needed for kernel density surface
 library(tmaptools)
 library(RColorBrewer)
 library(usethis)
-
-# Set Working Directory
-setwd("~/Desktop/Spring 2019/GIS & Spatial Analysis /Assignment 3 - market report")
 
 ```
 
 ## Introduction
 Land use is an important factor in Chicago's urban planning strategy, and access to open space is often used as an indicator of the environmental and economic health of a community. While green areas like parks and wildlife habitats are usually considered "good" open spaces, there is another type of open space that is more often considered "bad" or undesireable: vacant property. 
 
-I explore the spatial patterns of vacant land and green spaces in North Lawndale, a low-income community area on Chicago's West Side. North Lawndale and other West Side communities face a broad range of challenges, such as high crime and high poverty rates. I decided to focus on North Lawndale because of the high concentration of vacant land I observed in my initial visualizations of the data in Chicago (see Figures 1-3 below). I hypothesized that due to the high concentration of vacant land, North Lawndale could be a good candidate for targeted policies or programs to address land use and underutilized spaces in the city. Therefore, a market analysis of open space could be helpful to those seeking to better understand and improve accessibility to green spaces in low-income areas. 
+I explore the spatial patterns of vacant land and green spaces in North Lawndale, a low-income community area on Chicago's West Side. North Lawndale and other West Side communities face a broad range of challenges, such as high crime and high poverty rates. I decided to focus on North Lawndale because of the high concentration of vacant land I observed in my initial visualizations of the data in Chicago (see *Figures 1-3* below). Due to the high concentration of vacant land, North Lawndale could be a good candidate for targeted policies or programs to address land use and underutilized spaces in the city. Therefore, a market analysis of open space could be helpful to those seeking to better understand and improve accessibility to green spaces in low-income areas. 
 
-This report helps quantify and visualize the current state of accessibility to open space across six variables: location and size of public parks, access to public parks (distance), location and size of wildlife habitats, location of city-owned vacant properties, per capita income, and the percentage of households below the poverty line. 
+**This report helps quantify and visualize the current state of accessibility to open space across six variables**: location and size of public parks, access to public parks (distance), location and size of wildlife habitats, location of city-owned vacant properties, per capita income, and the percentage of households below the poverty line. 
 
 ## Methodology
 I used data from the Chicago Data Portal and the American Community Survey (Census) for this analysis of open space and poverty in North Lawndale and Chicago. I identified four relevant datasets through the Portal, then looked to the Census for data on income and poverty levels. From the Chicago Data Portal, I downloaded shapefiles of Chicago Community Area Boundaries, which would be the foundation onto which I would map the additional data and subset North Lawndale as my area of interest. Next, I found spatial datasets on different types of open space: 1) [Habitat areas](https://data.cityofchicago.org/Environment-Sustainable-Development/Open-Spaces-Habitats/7ah2-brjg), defined as natural areas that support wildlife; 2) [Chicago Park District park boundaries](https://data.cityofchicago.org/Parks-Recreation/Parks-Chicago-Park-District-Park-Boundaries-curren/ej32-qgdr); and 3) an [inventory of city-owned vacant land](https://data.cityofchicago.org/browse?q=City-Owned%20Land%20Inventory&sortBy=relevance). Finally, I downloaded the ACS 5-Year 2017 Estimates on Select Economic Characteristics dataset to use the data on income and poverty for Chicago.  I used R for all my final maps and analysis, although I performed initial visualizations in both Geoda and QGIS. 
 
-In this analysis, I define "access" as a measure of distance (parks, habitat areas), as well as sum total (vacant properties). The reason behind this distinction is that parks and habitat areas are usually free for people to use and enjoy, but their distance from residents can impact how they are utilized. However, the number of vacant properties is a helpful measure because this count can help predict economic conditions and affects the housing prices of occupied properties in the area. 
+In this analysis, I define *access* as a measure of distance (parks, habitat areas), as well as sum total (vacant properties). The reason behind this distinction is that parks and habitat areas are usually free for people to use and enjoy, but their distance from residents can impact how they are utilized. However, the number of vacant properties is a helpful measure because this count can help predict economic conditions and affects the housing prices of occupied properties in the area. 
 
 ## Analysis: North Lawndale
 
@@ -63,5 +61,7 @@ Wildlife habitats are also scarce in North Lawndale. These habitat areas may or 
 
 ![Chicago open spaces and percentage of community below poverty line](Rplot08.png)
 
-## Summary
-The North Lawndale community has limited access to open green space. While vacant properties abound, they are spatially independent within the area, suggesting that blight is widespread. This phenomenon is in stark contrast to vacant properties across the city as a whole, where there is clear spatial dependence between vacant properities and low-income neighborhoods such as North Lawndale. Furthermore, North Lawndale's city parks and habitat areas are below-average in size, and many residents live more than a quarter mile away from these open green spaces. One recommendation for addressing these issues would be developing some of North Lawndale's many vacant properties into parks or restored wildlife habitats. With an abundance of unused land, city and local officials could transform North Lawndale by increasing the number of open green spaces. 
+## Conclusion 
+The North Lawndale community has limited access to open green space. While vacant properties abound, they are spatially independent within the area, suggesting that blight is widespread. This phenomenon is in stark contrast to vacant properties across the city as a whole, where there is clear spatial dependence between vacant properities and low-income neighborhoods such as North Lawndale. Furthermore, North Lawndale's city parks and habitat areas are below-average in size, and many residents live more than a quarter mile away from these open green spaces. 
+
+One recommendation for addressing these issues would be developing some of North Lawndale's many vacant properties into parks or restored wildlife habitats. With an abundance of unused land, city and local officials could transform North Lawndale by increasing the number of open green spaces. 
