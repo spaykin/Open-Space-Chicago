@@ -1,5 +1,5 @@
 ---
-title: 'Assignment 3: North Lawndale Market Report'
+title: 'Open Space in Chicago: North Lawndale Market Report'
 author: "Susan Paykin"
 date: "5/26/2019"
 output:
@@ -41,7 +41,7 @@ In this analysis, I define *access* as a measure of distance (parks, habitat are
 
 ## Analysis: North Lawndale
 
-I decided to add **quarter-mile buffers** to the city parks because people tend not to travel far to access parks, instead opting to walk or ride their bikes. I chose this distance as a measure of access because people are typically more likely to visit a park within the vicinity of a quarter-mile from their residence. Accessing city parks is free, so the main barrier to entry to these green areas is this travel distance. I made a **union of the park buffers** to better represent these parks' accessibility, in terms of distance. The city parks and habitat areas are represented in the shapes of their geographical boundaries, as opposed to points, because these spaces vary greatly in shape, total area and acreage. I chose to represent the city-owned vacant properties as points beceause these sites are smaller in size on average. I also wanted them to stand out among the parks and habitat open spaces. I chose the orange color to draw attention to these points and contrast with the blue-green palette of the parks, park buffers and habitat areas.
+I decided to add **quarter-mile buffers** to the city parks because people tend not to travel far to access parks, instead opting to walk or ride their bikes. I chose this distance as a measure of access because people are typically more likely to visit a park within the vicinity of a quarter-mile from their residence. Accessing city parks is free, so the main barrier to entry to these green areas is this travel distance. I made a **union of the park buffers** to better represent these parks' accessibility, in terms of distance. The city parks and habitat areas are represented in the shapes of their geographical boundaries, as opposed to points, because these spaces vary greatly in shape, total area and acreage. I chose to represent the city-owned vacant properties as points because these sites are smaller in size on average. I also wanted them to stand out among the parks and habitat open spaces. Orange draws attention to these points and contrast with the blue-green palette of the parks, park buffers and habitat areas.
 
 ![](Rplot05.png)
 
